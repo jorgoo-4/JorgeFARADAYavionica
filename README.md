@@ -6,6 +6,30 @@ Es el análisis de `softwareFARADAY 1.xlsx` y `softwareFARADAY 2.xlsx` convertid
 
 **El selector de ST filtra, yo pondero.**
 
+## Contexto
+
+Material de apoyo a la prueba técnica de **Aviónica Software**:
+
+| Ejercicio | Enunciado |
+|---|---|
+| 1 | selección del microcontrolador STM32 y proyecto básico en STM32CubeMX (SPI, I2C y ST-LINK) |
+| 2 | selección e integración de sensores |
+| 3 | especialización |
+
+Esta herramienta sostiene la justificación de los ejercicios 1a y 2a: requisitos, umbrales, pesos, notas y sensibilidad. El proyecto de CubeMX está en `nucleov1fraday/`. Las respuestas escritas a los ejercicios van en un documento aparte, que se añadirá a este repositorio.
+
+## Hecho con Claude
+
+La herramienta (código, importadores, validador, tests y documentación) se ha construido con **Claude Code** (Anthropic), a partir de mis dos libros de Excel y del export del selector de ST. El análisis, los umbrales, los pesos y las notas son míos: Claude los ha trasladado sin inventar datos, y lo que no tenía procedencia está marcado como `pendiente`.
+
+La matriz está pensada para **seguir actualizándose con Claude**. La skill [`.claude/skills/matriz-avionica/SKILL.md`](.claude/skills/matriz-avionica/SKILL.md) define cómo:
+
+1. Basta con pedirlo en lenguaje natural: «añade el STM32H563 a los candidatos», «he cambiado de IMU», «el aerofreno pasa a la bahía principal».
+2. Antes de escribir, Claude pide la ficha técnica, la revisión y la fecha, y se niega a rellenar valores que no se le den.
+3. Si la pieza está en el catálogo de ST, recuerda que hay que reejecutar el embudo.
+4. Pasa el validador y los tests.
+5. Resume qué ha cambiado en el ranking y en la sensibilidad, y qué queda pendiente de fuente.
+
 ## Uso
 
 ```bash
