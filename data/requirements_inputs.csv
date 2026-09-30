@@ -1,0 +1,11 @@
+id,parametro,valor,unidad,origen,etiqueta,fuente,revision
+vuelo_s,Duración del vuelo de referencia,754,s,Aftershock II (USC) aterrizó a T+754 s.,vuelo,,
+margen,Margen sobre la duración de vuelo,1,×,El vuelo real puede durar más que el simulado. Me dejo un margen del 100 %.,criterio_propio,,
+rampa_h,Espera mínima en rampa,6,h,"Guía de EuRoC, apartado 3.4: autonomía mínima en rampa.",fuente,,
+n_estados,Estados del filtro de Kalman (n),15,estados,"USC usó 15 estados (en MATLAB, post-vuelo). CATS Vega usa 3 a bordo.",vuelo,,
+f_filtro_hz,Frecuencia del filtro,200,Hz,Objetivo de diseño mío. El CATS Vega corre a 100 Hz.,criterio_propio,,
+coste_por_paso,Coste del filtro por paso,6,× n³ ops,Estimación del coste de propagar la covarianza (O(n³)).,criterio_propio,,
+ciclos_por_op,Ciclos por operación en coma flotante,4,ciclos,"Incluyo accesos a memoria y bucle, no solo la instrucción de la FPU.",criterio_propio,,
+bytes_muestra,Bytes por muestra de registro,64,bytes,Estimación mía de la trama de telemetría y registro.,criterio_propio,,
+f_registro_hz,Frecuencia de registro,200,Hz,Objetivo de diseño mío.,criterio_propio,,
+escala_ecef_m,Escala de posición en ECEF,6400000,m,Radio terrestre aproximado.,calculo,,

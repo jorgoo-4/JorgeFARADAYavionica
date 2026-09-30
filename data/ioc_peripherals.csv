@@ -1,0 +1,3 @@
+ioc,mcu,periferico,bus,unidades,pines
+nucleov1fraday/nucleov1fraday.ioc,STM32H743ZITx,LPUART1,uart,1,PA10 PA9
+nucleov1fraday/nucleov1fraday.ioc,STM32H743ZITx,GPIO,gpio,1,PA5

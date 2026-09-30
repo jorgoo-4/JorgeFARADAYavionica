@@ -1,0 +1,10 @@
+recurso,bus,tipo,buses_pedidos,reserva,justificacion
+SPI,spi,compartido,2,1,"SPI1 solo para la IMU, para que nada le meta latencia en el lazo del filtro. SPI2 para el acelerómetro de alta g y el magnetómetro, que no compiten con ella. La memoria de registro ya no gasta SPI porque la he puesto en QSPI, así que con 2 buses me basta y pido 1 de reserva. Es el mismo criterio de reparto que sigue el CATS Vega."
+UART / USART,uart,punto_a_punto,3,1,"Punto a punto: cada dispositivo pide la suya. GNSS, radio y consola de depuración, más una de reserva porque es lo primero que se me queda corto si añado un nodo."
+I2C,i2c,compartido,1,1,"Caben todos en un bus con direcciones distintas. Cuento los dos barómetros aunque el segundo vaya en la electrónica redundante: si acabo poniéndolo en mi placa ya está contado. Tengo que vigilar el choque de direcciones, porque muchos de estos sensores solo ofrecen dos, y los 400 pF de la especificación."
+CAN (bxCAN o FDCAN),can,compartido,1,0,Un bus hacia la bahía del aerofreno. Me queda confirmar con el equipo si ya hay un bus entre bahías definido para no inventarme otro.
+Canales ADC,adc,punto_a_punto,11,1,"4 de continuidad + 2 termistores + 2 tensiones + posición del aerofreno + corriente del servo + el giróscopo de alto rango, que es analógico. De los 11, dos son del nodo del aerofreno: si se quedan allí me bastan 9 + 1 de reserva. Los dejo contados aquí hasta cerrar el reparto de bahías en CubeMX."
+Salidas PWM,pwm,punto_a_punto,2,1,"Zumbador y servo del aerofreno, aunque el servo esté en la otra bahía. Contado por prudencia."
+Entradas GPIO,gpio,punto_a_punto,9,2,"2 breakwire + armado + 3 chip-select, uno por dispositivo SPI + 3 interrupciones de dato listo. Antes contaba 6 chip-select porque venían de una IMU redundante que al final no llevo."
+QSPI o SDMMC,qspi_sdmmc,punto_a_punto,1,0,"La memoria de registro, con DMA."
+Captura de timer,timer,punto_a_punto,1,0,El PPS del GNSS para disciplinar el reloj.

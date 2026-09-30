@@ -1,0 +1,19 @@
+id,umbral,fila_origen,campo,operador,minimo,unidad,derivado_de,minimo_texto,selector_param,selector_id,filtrable,notas
+T01,Familia STM32,6,familia,igual,STM32,,,Exigido por el enunciado,— (implícito: el selector solo tiene STM32),,implicito,
+T02,FPU en hardware,7,fpu,contiene_alguno,Single-precision;Double-precision;Half-precision,,,Obligatoria para el filtro,FPU (Single / Double / Half-precision),5529,si,"En FPU el '-' del selector significa «sin FPU» (núcleos M0/M3), no un hueco de la base de datos."
+T03,Buses SPI,8,spi,>=,3,buses,bus:spi,≥ Inventario!E41 buses SPI (calculado en la hoja Inventario),SPI,5032,si,
+T04,UART / USART,9,uart_total,>=,4,puertos,bus:uart,≥ Inventario!E42 UART (calculado en la hoja Inventario),USART + UART (dos columnas distintas),5033+5062,si,Trampa 2: el selector separa USART y UART; el umbral los suma.
+T05,I2C,10,i2c,>=,2,buses,bus:i2c,≥ Inventario!E43 buses I2C (calculado en la hoja Inventario),I2C,5031,si,
+T06,CAN (bxCAN o FDCAN),11,can_total,>=,1,buses,bus:can,≥ Inventario!E44 CAN (calculado en la hoja Inventario),CAN (FD) + CAN (2.0) (dos columnas),5501+5468,si,Trampa 2: CAN FD y CAN 2.0 son columnas separadas; el umbral las suma.
+T07,Interfaz de registro,12,interfaz_registro,contiene_alguno,Quad SPI;Octo SPI;xSPI;QUADSPI;OCTOSPI;SD/MMC;SDMMC;SDIO,,,SDMMC/SDIO o QSPI con DMA,External Memory Interfaces / Additional Interfaces,5440/5439,si,
+T08,Canales ADC,13,adc_canales,>=,12,canales,bus:adc,≥ Inventario!E45 canales ADC (calculado en la hoja Inventario),"Number of Channels (aparece 3 veces, una por grupo de ADC)",5279/5422/5280,si,Trampa 3: se toma el máximo de los tres grupos; condiciones dice cuál.
+T09,Timers con PWM,14,timers_total,>=,3,timers,bus:pwm,≥ Inventario!E46 timers con PWM (calculado en la hoja Inventario),"Timers 16-bit + 32-bit, Other timer functions",5045+5046/977,si,Trampa 5: timers repartidos en otras columnas (el U575ZI sale con 0).
+T10,RAM,15,ram_kb,>=,128,kB,,≥ requisito del filtro + buffers,RAM Size,1901,si,"La hoja no fija número (""≥ requisito del filtro + buffers""); 128 kB es la cifra del embudo."
+T11,Flash interna,16,flash_kb,>=,256,kB,,≥ 256 kB,Flash Size,3144,si,
+T12,Temperatura mínima,17,temp_min_c,<=,-40,°C,,−40 a 85 °C (sufijo del número de pieza),Operating Temperature min,960,si,El embudo solo filtró la máxima.
+T13,Temperatura máxima,17,temp_max_c,>=,85,°C,,−40 a 85 °C (sufijo del número de pieza),Operating Temperature max,962,si,
+T14,Encapsulado soldable por el equipo,18,encapsulado,contiene_alguno,LQFP,,,LQFP (sin horno ni rayos X),Package,4363,si,
+T15,Placa de evaluación disponible ya,19,placa_evaluacion,afirmativo,,,,Nucleo o Discovery en stock,— no filtrable: comprobación manual,,no,El único umbral que el selector no sabe filtrar: define la regla de lista corta.
+T16,Disponibilidad: estado comercial,20,estado_comercial,igual,Active,,,En stock y en programa de longevidad de ST,Marketing Status,163,si,
+T17,Disponibilidad: stock y longevidad,20,disponibilidad_longevidad,afirmativo,,,,En stock y en programa de longevidad de ST,Longevity Commitment,62,si,El export ProductsList.xlsx no trae la columna Longevity: el dato viene de la hoja Umbrales (pendiente).
+T18,Todo coexiste en el encapsulado,21,coexistencia_cubemx,afirmativo,,,,Verificado en CubeMX sin conflictos de patillas,— no filtrable: es CubeMX,,no,

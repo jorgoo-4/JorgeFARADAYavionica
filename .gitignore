@@ -1,0 +1,18 @@
+# Archivos de bloqueo de Excel/Office (aparecen mientras el libro está abierto)
+~$*
+
+# Python
+__pycache__/
+*.pyc
+
+# Accesos directos de Windows
+*.lnk
+
+# Proyecto de CubeMX: solo se versiona lo que no se regenera.
+# Drivers/ (HAL y CMSIS de ST) se regenera desde el .ioc con CubeMX.
+nucleov1fraday/Drivers/
+nucleov1fraday/Debug/
+nucleov1fraday/Release/
+
+# Instrucciones de trabajo para Claude, no forman parte de la herramienta
+prompt-claude-code-matriz-avionica.md

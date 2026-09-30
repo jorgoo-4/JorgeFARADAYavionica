@@ -1,0 +1,15 @@
+name: validate
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Solo python3 (viene en el runner). Node también viene de serie: si está, los tests
+      # contrastan app/core.js con tools/core.py; no se instala nada.
+      - name: Validar datos
+        run: python3 tools/validate.py
+      - name: Tests del núcleo
+        run: python3 tests/test_core.py

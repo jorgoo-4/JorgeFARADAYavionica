@@ -1,0 +1,14 @@
+id,fabricante,modelo,serie,rol,motivo_rol,en_catalogo_st,notas
+STM32F411RE,STMicroelectronics,STM32F411RE,F4,control,,si,"Control: cae por CAN=0 y UART=3. Micro del CATS Vega, referencia de lo minimo que basta."
+STM32F446RE,STMicroelectronics,STM32F446RE,F4,candidato,,si,El F4 con Nucleo propia y con QUADSPI. Sustituto natural del F405 si pesa el umbral de placa.
+STM32G474RE,STMicroelectronics,STM32G474RE,G4,candidato,,si,"ST no publica consumo de esta pieza en el selector. SPI=3, no 4: margen cero sobre el umbral."
+STM32H743ZI,STMicroelectronics,STM32H743ZI,H7,candidato,,si,ECC en Flash y RAM. 270 uA/MHz a 480 MHz son unos 130 mA: es el peor en rampa.
+ESP32-S3,Espressif,ESP32-S3,-,control,,no,Control: cae por familia STM32 y por encapsulado. No esta en el catalogo de ST.
+STM32F767ZI,STMicroelectronics,STM32F767ZI,F7,candidato,,si,Doble precision sin el salto de consumo del H743. 3 CAN. Candidato que faltaba en mi lista original.
+STM32H563ZI,STMicroelectronics,STM32H563ZI,H5,candidato,,si,ECC y 111 uA/MHz: mucho mas eficiente que el H743. Pierde en precision numerica por no tener FPU de doble precision.
+STM32L476RG,STMicroelectronics,STM32L476RG,L4,candidato,,si,La opcion de bajo consumo clasica. 80 MHz: hay que comprobar el margen del filtro.
+STM32L552ZE,STMicroelectronics,STM32L552ZE,L5,candidato,,si,
+STM32U385RG,STMicroelectronics,STM32U385RG,U3,candidato,,si,
+STM32U5A5ZJ,STMicroelectronics,STM32U5A5ZJ,U5,candidato,,si,"Representa a la serie U5 en lugar del STM32U575ZI, que aparece en el catálogo con 0 timers: hueco de la base de datos, no de la pieza (Umbrales A27)."
+STM32C5A3ZG,STMicroelectronics,STM32C5A3ZG,C5,candidato,,si,Placa de evaluación por confirmar: es lo único que podría eliminarlo (Umbrales A27).
+STM32F405RG,STMicroelectronics,STM32F405RG,F4,lista_larga,No es el representante de su serie según la regla declarada (Umbrales A27): sin Nucleo propia y sin QUADSPI; la serie F4 la representa el F446RE.,si,Sin QUADSPI: la flash NOR iria por SPI o SDIO. Sin Nucleo; la F4DISCOVERY monta un F407VG.

@@ -1,0 +1,72 @@
+pieza,serie,pasos_con_campo_vacio
+STM32C551MC,C5,CAN ≥ 1; Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C551ME,C5,CAN ≥ 1; Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C551RC,C5,CAN ≥ 1; Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C551RE,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C551VC,C5,CAN ≥ 1; Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C551VE,C5,CAN ≥ 1; Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552MC,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552ME,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552RC,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552RE,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552VC,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C552VE,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C562ME,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C562RE,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C562VE,C5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32C591ME,C5,CAN ≥ 1
+STM32C591MG,C5,CAN ≥ 1
+STM32C591RE,C5,CAN ≥ 1
+STM32C591RG,C5,CAN ≥ 1
+STM32C591VE,C5,CAN ≥ 1
+STM32C591VG,C5,CAN ≥ 1
+STM32C591ZE,C5,CAN ≥ 1
+STM32C591ZG,C5,CAN ≥ 1
+STM32F723VC,F7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32G483ME,G4,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12
+STM32H5E4IJ,H5,I2C ≥ 2
+STM32H5E4IK,H5,I2C ≥ 2
+STM32H5E4VJ,H5,I2C ≥ 2
+STM32H5E4VK,H5,I2C ≥ 2
+STM32H5E4ZJ,H5,I2C ≥ 2
+STM32H5E4ZK,H5,I2C ≥ 2
+STM32H5E5IJ,H5,I2C ≥ 2
+STM32H5E5IK,H5,I2C ≥ 2
+STM32H5E5ZJ,H5,I2C ≥ 2
+STM32H5E5ZK,H5,I2C ≥ 2
+STM32H5F4IJ,H5,I2C ≥ 2
+STM32H5F4VJ,H5,I2C ≥ 2
+STM32H5F4ZJ,H5,I2C ≥ 2
+STM32H5F5IJ,H5,I2C ≥ 2
+STM32H5F5ZJ,H5,I2C ≥ 2
+STM32H7A3IG,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3II,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3RG,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3RI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3VG,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3VI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3ZG,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7A3ZI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7B3II,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7B3RI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7B3VI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32H7B3ZI,H7,SPI ≥ 3; USART + UART ≥ 4; CAN ≥ 1; Canales ADC ≥ 12; Timers ≥ 3
+STM32L496RG,L4,I2C ≥ 2
+STM32U375RE,U3,CAN ≥ 1
+STM32U375VE,U3,CAN ≥ 1
+STM32U375VG,U3,CAN ≥ 1
+STM32U575RG,U5,Timers ≥ 3
+STM32U575RI,U5,Timers ≥ 3
+STM32U575VG,U5,Timers ≥ 3
+STM32U575VI,U5,Timers ≥ 3
+STM32U575ZI,U5,Timers ≥ 3
+STM32U585ZI,U5,Timers ≥ 3
+STM32U595RI,U5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32U595RJ,U5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32U595VI,U5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32U595ZJ,U5,Interfaz de registro (Quad/Octo/xSPI o SD-MMC)
+STM32U599VI,U5,CAN ≥ 1
+STM32U599ZI,U5,CAN ≥ 1
+STM32U5F7VJ,U5,CAN ≥ 1
+STM32U5F9VJ,U5,CAN ≥ 1
+STM32U5F9ZJ,U5,CAN ≥ 1

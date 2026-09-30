@@ -1,0 +1,10 @@
+id,requisito,unidad,como_se_obtiene,etiqueta,tipo,valor_constante,enganchado_a,formula_excel
+duracion_diseno_s,Duración de misión de diseño (registro y energía),s,Duración de vuelo × (1 + margen).,calculo,derivado,,requisito memoria_registro_mb,B6*(1+B7)
+memoria_registro_mb,Memoria de registro necesaria,MB,bytes/muestra × Hz × duración de diseño. El altímetro de respaldo de USC se quedó sin memoria a los 375 s de un vuelo de 754 s: por eso lo dimensiono con margen.,calculo+vuelo,derivado,,,B13*B14*B19/1048576
+ops_paso,Operaciones en coma flotante por paso del filtro,ops,Coste por paso ≈ 6·n³.,calculo,derivado,,requisito mops_s,B11*B9^3
+mops_s,Carga de cálculo del filtro,Mops/s,ops por paso × frecuencia del filtro.,calculo,derivado,,requisito mciclos_s,B21*B10/1000000
+mciclos_s,Ciclos de CPU por segundo que consume el filtro,Mciclos/s,Mops/s × ciclos por operación. Lo comparo con los MHz del candidato: eso es el % de CPU.,calculo,derivado,,criterio calculo,B22*B12
+resolucion_ecef_m,Resolución de un float de 32 bits a escala ECEF,m,"Mantisa de 24 bits: entre 2^22 y 2^23 los valores van de 0,5 en 0,5. O uso FPU de doble precisión o trabajo en un marco local ENU.",calculo,derivado,,criterio precision,"2^(INT(LOG(B15,2))-23)"
+vuelta_contador_min,Vuelta del contador de microsegundos de 32 bits,min,"2^32 µs. Con 6 h en rampa da la vuelta varias veces antes del despegue, así que lo gestiono en firmware.",calculo,derivado,,"firmware (base de tiempo, sensor TCXO + PPS)",2^32/1000000/60
+vueltas_rampa,Vueltas del contador durante la espera en rampa,vueltas,Horas en rampa × 60 / minutos por vuelta.,calculo,derivado,,"firmware (base de tiempo, sensor TCXO + PPS)",B8*60/B25
+rango_temperatura,Rango de temperatura exigido,°C,"Rango industrial. Es el sufijo del número de pieza, no el de la familia.",fuente,constante,−40 a 85 °C,umbrales T12 y T13,

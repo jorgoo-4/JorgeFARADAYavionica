@@ -1,0 +1,10 @@
+criterio_id,ancla_5,ancla_3,ancla_1,origen_dato
+calculo,"El EKF ocupa < 10 % de CPU a la frecuencia objetivo, medido con un contador de ciclos.",Entre 25 % y 40 % de CPU.,"Más del 60 %, o no lo has medido.","Contador DWT de ciclos en una placa Nucleo, con mi filtro real."
+precision,FPU de doble precisión en hardware (Cortex-M7).,"Float, pero con marco local ENU y el cálculo de resolución hecho y documentado.",Float en ECEF sin analizar la escala.,Ficha del núcleo (ST AN4044) y mi cálculo de resolución de la hoja Requisitos.
+perifericos,≥ 2 buses libres de cada tipo después de rutarlo entero en CubeMX.,1 bus libre de cada tipo.,"Sale justo, sin reserva.",Mi proyecto de CubeMX con todos los sensores del Ej. 2 asignados.
+registro,SDMMC de 4 bits con DMA y ≥ 4× la memoria calculada.,QSPI con 2× de margen.,"Solo flash interna, sin margen sobre el cálculo.",Ficha técnica y el requisito de memoria de la hoja Requisitos.
+consumo,≤ 50 % del presupuesto de batería de 6 h.,Entre 50 % y 80 %.,Más del 100 %: no llega al despegue.,"Corriente por MHz de la ficha × mi reloj, y después medido en el banco."
+robustez,ECC en RAM y Flash + watchdog independiente con ventana + CSS + detector de caída de tensión.,"Watchdog y CSS, sin ECC.",Solo watchdog básico.,Ficha técnica y ST AN5342 (ECC).
+continuidad,Familia que Faraday ya vuela: drivers y experiencia reutilizables.,"Misma familia, subfamilia distinta.",Familia nueva para el equipo.,Pendiente de confirmarlo con Víctor o con María. Que el equipo trabaja con STM32 lo dice el propio enunciado.
+calendario,Arranca desde CubeMX sin tocar caché ni MPU.,Necesita ajustes conocidos y documentados.,"Caché, DMA y MPU por resolver, con una semana por delante.",Mi experiencia montando el proyecto base esta semana.
+coste,"< 10 €, stock inmediato, longevidad garantizada más allá de 2030.","< 25 €, plazo de semanas.",> 40 € o plazo desconocido.,"Distribuidor (Mouser, Farnell, DigiKey) y la tabla de longevidad de ST."

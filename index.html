@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matriz de aviónica</title>
+<link rel="stylesheet" href="app/style.css">
+</head>
+<body>
+<header class="cabecera">
+  <h1>Selección de aviónica — matriz de decisión</h1>
+  <nav>
+    <a href="#mision">0 Misión</a>
+    <a href="#requisitos">1 Requisitos</a>
+    <a href="#buses">2 Inventario y buses</a>
+    <a href="#embudo">3 Embudo</a>
+    <a href="#filtro">4 Filtro</a>
+    <a href="#ranking">5 Ranking</a>
+    <a href="#sensibilidad">6 Sensibilidad</a>
+  </nav>
+  <div class="derecha">
+    <span id="resumen-pendientes" class="suave"></span>
+    <button id="btn-export" type="button">Exportar a Markdown</button>
+  </div>
+</header>
+
+<main>
+  <div id="error-carga"></div>
+
+  <section id="mision">
+    <h2>0 · De la misión a la aviónica</h2>
+    <p class="lead">Condición de vuelo → problema real → implicación en el diseño. Es la trazabilidad de la que sale todo lo demás.</p>
+    <div class="tabla-scroll"><table id="tabla-mision"></table></div>
+  </section>
+
+  <section id="requisitos">
+    <h2>1 · Requisitos</h2>
+    <p class="lead">Los diez datos de entrada son editables; los requisitos derivados se recalculan al vuelo. Los cambios no se guardan en los CSV: para hacerlos definitivos, edita <code>data/requirements_inputs.csv</code>.</p>
+    <div class="dos-columnas">
+      <div>
+        <h3>Datos de entrada <button id="btn-reset-req" type="button">Volver a los del expediente</button></h3>
+        <div class="tabla-scroll"><table id="tabla-entradas"></table></div>
+      </div>
+      <div>
+        <h3>Requisitos derivados</h3>
+        <div class="tabla-scroll"><table id="tabla-derivados"></table></div>
+        <h3>Carga del filtro sobre cada candidato</h3>
+        <p class="suave pequeno">Mciclos/s del filtro ÷ MHz del candidato. Es cálculo, no medida: la medida con el contador DWT es la que sustituye a esta tabla.</p>
+        <div class="tabla-scroll"><table id="tabla-cpu"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="buses">
+    <h2>2 · Inventario y buses</h2>
+    <p class="lead">Primero qué estados estimo, qué eventos detecto y qué salud vigilo; de ahí salen los sensores, y de los sensores, los buses. El umbral de cada bus es siempre <strong>dispositivos → buses → + reserva</strong>. Cantidad y bahía se pueden cambiar aquí para probar; el cambio definitivo va en <code>data/sensors.csv</code>.</p>
+    <div id="avisos-bahia"></div>
+    <div class="tabla-scroll"><table id="tabla-sensores"></table></div>
+    <p id="trafico" class="suave"></p>
+    <h3>De dispositivos a buses (lo que se le pide al micro)</h3>
+    <div class="tabla-scroll"><table id="tabla-buses"></table></div>
+    <h3>Coherencia</h3>
+    <div id="coherencia"></div>
+  </section>
+
+  <section id="embudo">
+    <h2>3 · Embudo del selector de ST</h2>
+    <p class="lead">«¿Por qué esos candidatos?» La respuesta es el embudo, no una opinión. El selector de ST filtra; yo pondero.</p>
+    <div class="dos-columnas">
+      <div>
+        <div id="grafico-embudo"></div>
+        <div class="tabla-scroll"><table id="tabla-embudo"></table></div>
+      </div>
+      <div>
+        <div class="caja">
+          <h3 style="margin-top:0">Regla declarada: de la lista larga a la corta</h3>
+          <p>La lista larga no es una matriz. Bajo a la lista corta con una regla escrita de antemano: <strong>un representante por serie superviviente</strong>, la referencia que tiene placa Nucleo. Es el umbral T15, el único de la lista que el selector no sabe filtrar.</p>
+          <p>Más <strong>dos controles</strong> que dejo caer a propósito para demostrar que el filtro funciona: el ESP32-S3, que cae por familia y por encapsulado, y el STM32F411RE, el micro del CATS Vega, que cae por CAN y por UART.</p>
+          <p>Del F4 represento con el F446RE y no con el F405RG: el F405 no tiene Nucleo propia y le falta QUADSPI. El STM32U575ZI aparece en el catálogo con 0 timers, un hueco de la base de datos y no de la pieza, así que represento el U5 con el U5A5ZJ. La placa del C5A3ZG está por confirmar.</p>
+          <p class="suave pequeno">Fuente del texto: hoja Umbrales, celda A27. Regla completa y qué la invalidaría: DECISIONES.md, D-01.</p>
+        </div>
+        <h3>Supervivientes por serie</h3>
+        <div class="tabla-scroll"><table id="tabla-series"></table></div>
+        <h3>Eliminaciones sospechosas (trampa 5)</h3>
+        <div id="sospechosos"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="filtro">
+    <h2>4 · Filtro de umbrales</h2>
+    <p class="lead">Un umbral no se puntúa: se cumple o no. Tres resultados que no se mezclan: <span class="st st-pasa">PASA</span> <span class="st st-no">NO</span> cumple, <span class="st st-sin_dato">SIN DATO</span> (no lo he mirado: nunca cuenta como aprobado) y <span class="st st-sosp">NO ?</span> eliminación sospechosa, causada por un campo vacío o a cero en la fuente.</p>
+    <div class="tabla-scroll"><table id="tabla-filtro"></table></div>
+    <h3>Lo que le falta a cada candidato (tarea pendiente)</h3>
+    <div id="faltan"></div>
+  </section>
+
+  <section id="ranking">
+    <h2>5 · Ranking</h2>
+    <p class="lead">Solo puntúan los que sobreviven al filtro. Peso derivado = severidad × no detectabilidad, normalizado a 100 %. Barras de longitud peso × nota, agrupadas por familia de criterios.</p>
+    <p><label><input type="checkbox" id="chk-provisional" checked> Incluir aprobados <strong>condicionados</strong>: los que no fallan ningún umbral, pero tienen alguno sin dato.</label></p>
+    <div id="aviso-pesos"></div>
+    <div id="grafico-ranking"></div>
+    <div id="eliminados"></div>
+    <h3>Pesos <button id="btn-reset-pesos" type="button">Volver a los pesos del expediente</button></h3>
+    <div id="pesos" class="pesos"></div>
+    <h3>Notas con sus anclas a la vista</h3>
+    <div class="tabla-scroll"><table id="tabla-notas"></table></div>
+  </section>
+
+  <section id="sensibilidad">
+    <h2>6 · Sensibilidad</h2>
+    <p class="lead">¿Gana el mismo si muevo los pesos, si los igualo o si quito un criterio? El punto de vuelco es el cambio mínimo de peso que cambia el ganador, renormalizando el resto.</p>
+    <div id="frases"></div>
+    <h3>Escenarios</h3>
+    <div class="tabla-scroll"><table id="tabla-escenarios"></table></div>
+    <div class="dos-columnas">
+      <div>
+        <h3>Punto de vuelco por criterio</h3>
+        <div class="tabla-scroll"><table id="tabla-vuelco"></table></div>
+      </div>
+      <div>
+        <h3>Punto de vuelco por familia</h3>
+        <div class="tabla-scroll"><table id="tabla-vuelco-familia"></table></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="app/csv.js"></script>
+<script src="app/core.js"></script>
+<script src="app/ui.js"></script>
+</body>
+</html>
