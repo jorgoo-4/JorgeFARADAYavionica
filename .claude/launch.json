@@ -4,7 +4,7 @@
     {
       "name": "matriz",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8000"],
+      "runtimeArgs": ["-m", "http.server", "8000", "--directory", "matriz"],
       "port": 8000
     }
   ]

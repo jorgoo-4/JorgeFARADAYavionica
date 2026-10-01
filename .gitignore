@@ -8,11 +8,11 @@ __pycache__/
 # Accesos directos de Windows
 *.lnk
 
-# Proyecto de CubeMX: solo se versiona lo que no se regenera.
-# Drivers/ (HAL y CMSIS de ST) se regenera desde el .ioc con CubeMX.
-nucleov1fraday/Drivers/
-nucleov1fraday/Debug/
-nucleov1fraday/Release/
+# Salida de compilación de STM32CubeIDE
+firmware/**/Debug/
+firmware/**/Release/
 
-# Instrucciones de trabajo para Claude, no forman parte de la herramienta
+# Instrucciones de trabajo para Claude y apuntes personales, no forman parte de la entrega
 prompt-claude-code-matriz-avionica.md
+LECCION_DRIVERS.md
+GUIA_DRIVERS.md

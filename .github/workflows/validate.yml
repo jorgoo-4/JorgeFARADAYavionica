@@ -8,8 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Solo python3 (viene en el runner). Node también viene de serie: si está, los tests
-      # contrastan app/core.js con tools/core.py; no se instala nada.
+      # contrastan matriz/app/core.js con matriz/tools/core.py; no se instala nada.
       - name: Validar datos
-        run: python3 tools/validate.py
+        run: python3 matriz/tools/validate.py
       - name: Tests del núcleo
-        run: python3 tests/test_core.py
+        run: python3 matriz/tests/test_core.py
