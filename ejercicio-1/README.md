@@ -88,6 +88,9 @@ Me quedo con el H743 porque prefiero no atarme ahora a un marco local, pero lo p
 | PE12 | GPIO in | interruptor de armado |
 | PH0 / PH1 | RCC OSC IN / OUT | HSE |
 
+<img width="802" height="655" alt="image" src="https://github.com/user-attachments/assets/043e8308-6c94-4587-8095-e142bd3472b3" />
+
+
 ### Notas
 
 - **SPI2 en PC2_C y PC3_C.** En el H743, esos pads pasan por un conmutador analógico. Lo cierro explícitamente en `HAL_MspInit` (`stm32h7xx_hal_msp.c`, dentro de `USER CODE`). Si ya estuviera cerrado, la llamada no cambia nada.
