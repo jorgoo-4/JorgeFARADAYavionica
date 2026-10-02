@@ -20,7 +20,7 @@ La página tiene siete secciones:
 | 5. Ranking | puntuación ponderada, con los pesos ajustables |
 | 6. Sensibilidad | cuánto tendría que cambiar un peso para que cambie el ganador |
 
-Cada dato lleva su procedencia: ficha técnica, vuelo real, cálculo, medida o criterio propio. Lo que aún no tiene fuente está marcado como pendiente.
+Cada dato lleva su procedencia: ficha técnica, vuelo real, cálculo, medida o criterio propio.
 
 ## El método
 

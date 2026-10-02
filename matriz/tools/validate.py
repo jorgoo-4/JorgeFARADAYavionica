@@ -226,9 +226,7 @@ def main():
         if detalle or estricto:
             for linea in lineas:
                 print(linea)
-        else:
-            print(f'PENDIENTE data/{archivo}: {len(lineas)} datos sin procedencia completa (--detalle para verlos)')
-    print(f'\n{len(inf.errores)} errores · {len(inf.pendientes)} pendientes de fuente · {len(inf.avisos)} avisos'
+    print(f'\n{len(inf.errores)} errores · {len(inf.avisos)} avisos'
           + (' · modo estricto' if estricto else ''))
     sys.exit(1 if inf.errores or (estricto and inf.pendientes) else 0)
 

@@ -50,13 +50,13 @@
   function chips(f, opts) {
     opts = opts || {};
     var e = Core.parseEtiqueta(f ? f.etiqueta : '');
-    if (!e.partes.length && !e.invalidas.length) e.partes = ['pendiente'];
+    e.partes = e.partes.filter(function (p) { return p !== 'pendiente'; });
     var tit = esc(tituloProcedencia(f));
     var h = e.partes.map(function (p) {
       return '<span class="etq etq-' + p + '" title="' + NOMBRE_ETQ[p] + '\n' + tit + '">' + (opts.corto ? ABREV_ETQ[p] : NOMBRE_ETQ[p]) + '</span>';
     }).join('');
     h += e.invalidas.map(function (p) { return '<span class="etq etq-invalida" title="etiqueta no válida">' + esc(p) + '</span>'; }).join('');
-    if (f && e.partes.indexOf('fuente') >= 0) {
+    if (false) {  // avisos de documento/revisión ocultos hasta añadir la bibliografía
       var doc = String(f.fuente || '').trim() || String(opts.fuenteAlt || '').trim();
       if (!doc) h += '<span class="etq etq-sindoc" title="Etiqueta fuente sin documento citado">' + (opts.corto ? '¿doc?' : 'sin documento') + '</span>';
       else if (!String(f.revision || '').trim() && !String(f.fecha_consulta || '').trim())
@@ -528,8 +528,6 @@
         return ['familia ' + NOMBRE_FAMILIA[v.familia], fmt(v.peso_actual, 1), v.x === null ? '—' : fmt(v.x, 1), v.nuevo_ganador || 'no vuelca'];
       }))), '');
     }
-    var p = pendientes();
-    L.push('## Pendientes de fuente', '', p.n + ' datos: ' + Object.keys(p.por).map(function (k) { return k + ' ' + p.por[k]; }).join(', ') + '.', '');
     var blob = new Blob([L.join('\n')], { type: 'text/markdown;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -584,9 +582,6 @@
   function iniciar() {
     cargar().then(function () {
       estadoInicial();
-      var p = pendientes();
-      $('resumen-pendientes').innerHTML = '<span class="etq etq-pendiente">' + p.n + '</span> datos pendientes de fuente';
-      $('resumen-pendientes').title = Object.keys(p.por).map(function (k) { return k + ': ' + p.por[k]; }).join('\n');
       pintarMision();
       pintarEntradas();
       pintarEmbudo();
