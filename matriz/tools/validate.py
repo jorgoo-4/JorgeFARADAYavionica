@@ -191,6 +191,16 @@ def validar(m, inf):
             inf.error('funnel.csv', i, f'el embudo crece ({prev} -> {n})')
         prev = n
 
+    # --- el paquete para abrir la página con doble clic tiene que coincidir con los CSV
+    import build_bundle
+    try:
+        with open(build_bundle.DESTINO, encoding='utf-8') as fb:
+            al_dia = fb.read() == build_bundle.contenido()
+    except FileNotFoundError:
+        al_dia = False
+    if not al_dia:
+        inf.error('../app/data_bundle.js', '-', 'no coincide con data/*.csv: ejecuta python3 matriz/tools/build_bundle.py')
+
     # --- coherencia (puntos 4 a 7 y CubeMX)
     for a in core.coherencia(m['sensors'], buses, m['bus_rationale'], m['ioc']):
         archivo = 'bus_rationale.csv' if a['codigo'] == 'reparto_obsoleto' else (

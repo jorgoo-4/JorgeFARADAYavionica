@@ -89,6 +89,18 @@
 
   // ------------------------------------------------------------------ carga
   function cargar() {
+    // Abierta con doble clic (file://) el navegador no deja leer los CSV con fetch:
+    // se usan los mismos CSV empaquetados en app/data_bundle.js (tools/build_bundle.py).
+    if (location.protocol === 'file:') {
+      var b = window.DATA_BUNDLE;
+      if (!b) return Promise.reject(new Error('falta app/data_bundle.js: ejecuta python3 matriz/tools/build_bundle.py'));
+      ARCHIVOS.forEach(function (n) {
+        if (b[n] !== undefined) D[n] = CSV.parse(b[n]);
+        else if (OPCIONALES.indexOf(n) >= 0) D[n] = [];
+        else throw new Error('data/' + n + '.csv no está en data_bundle.js');
+      });
+      return Promise.resolve();
+    }
     return Promise.all(ARCHIVOS.map(function (n) {
       return fetch('data/' + n + '.csv', { cache: 'no-store' }).then(function (r) {
         if (!r.ok) throw new Error('data/' + n + '.csv (' + r.status + ')');
@@ -570,10 +582,6 @@
   }
 
   function iniciar() {
-    if (location.protocol === 'file:') {
-      $('error-carga').innerHTML = '<div class="aviso error"><strong>Esta página no funciona abierta como archivo.</strong> Sírvela con <code>python3 -m http.server 8000</code> y abre <code>http://localhost:8000</code>.</div>';
-      return;
-    }
     cargar().then(function () {
       estadoInicial();
       var p = pendientes();

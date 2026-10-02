@@ -4,19 +4,23 @@ Jorge Gallego Broto
 
 Este repositorio contiene mis respuestas a la prueba de Aviónica Software. Cada ejercicio tiene su carpeta con un README que responde a cada apartado y enlaza al código o a los datos en los que se apoya.
 
+Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercicios_FARADAY.pdf`](docs/Resolucion_ejercicios_FARADAY.pdf). Su contenido está repartido y ordenado en los README de cada ejercicio.
+
 ## Dónde está cada ejercicio
 
 | Ejercicio | Apartado | Dónde |
 |---|---|---|
+| **Contexto** | Misión y problemas de vuelo | [`ejercicio-1/README.md`](ejercicio-1/README.md#contexto-de-la-misión) |
 | **1. Microcontrolador** | a) Elección y justificación | [`ejercicio-1/README.md`](ejercicio-1/README.md#a-elección-del-microcontrolador) |
 | | b) Proyecto STM32CubeMX (SPI, I²C, ST-LINK) | [`ejercicio-1/README.md`](ejercicio-1/README.md#b-proyecto-en-stm32cubemx) → proyecto en [`firmware/FARADAYJorge/`](firmware/FARADAYJorge/) |
-| **2. Sensores** | a) Sensores imprescindibles y modelos | [`ejercicio-2/README.md`](ejercicio-2/README.md#a-sensores-y-modelos) |
+| **2. Sensores** | a) Sensores imprescindibles, modelos y por qué cada uno | [`ejercicio-2/README.md`](ejercicio-2/README.md#a-sensores-y-modelos) |
 | | b) Inicialización y lectura | [`ejercicio-2/README.md`](ejercicio-2/README.md#b-inicialización-y-lectura) → código en [`firmware/FARADAYJorge/Core/Src/sensors/`](firmware/FARADAYJorge/Core/Src/sensors/) |
 | **3. Especialización** | — | en preparación |
 
 ## Qué hay en el repositorio
 
 ```
+docs/              documento de respuestas (PDF)
 ejercicio-1/        respuesta al ejercicio 1
 ejercicio-2/        respuesta al ejercicio 2
 firmware/           proyecto STM32CubeIDE (STM32H743ZI): configuración de CubeMX + drivers de sensores
@@ -24,7 +28,7 @@ matriz/             herramienta con la que elegí el micro: requisitos, umbrales
 ```
 
 - **El firmware** es un único proyecto, como pide el enunciado: el 2b se integra en el mismo proyecto generado en el 1b. Se abre en STM32CubeIDE con *File → Import → STM32CubeMX/STM32CubeIDE Project*, seleccionando `firmware/FARADAYJorge`. Compila sin errores ni avisos.
-- **La matriz** es una página web estática con los datos en CSV. Se abre con `python3 -m http.server 8000 --directory matriz` y luego <http://localhost:8000>. Detalles en [`matriz/README.md`](matriz/README.md).
+- **La matriz** es una página web estática con los datos en CSV. Se abre con doble clic en `matriz/index.html`, sin instalar nada (también sirve `python3 -m http.server 8000 --directory matriz`). Detalles en [`matriz/README.md`](matriz/README.md).
 
 ## Lo que no he podido hacer
 

@@ -1,8 +1,38 @@
 # Ejercicio 1 — Selección de microcontrolador y configuración básica
 
+## Contexto de la misión
+
+Antes de desarrollar el contexto de la misión, conviene recordar que superar el récord mundial es algo atípico. A Mach 5,2 (enunciado de estructuras) y a más de 143 km de altura, los componentes típicos de un cohete de competición fallan:
+- **El GNSS se bloquea,** ya sea por las restricciones COCOM de altitud o velocidad, o incluso por el efecto Doppler, la temperatura o las vibraciones del lanzamiento.
+- **El barómetro deja de medir** aproximadamente a 31 km de altura, cuando ya se ha perdido más del 99 % de la masa de la atmósfera terrestre y los cambios son indistinguibles.
+- **La telemetría sufriría problemas,** porque con frecuencias comerciales puedes tener problemas con la altura.
+
+Además hay muchos otros problemas, que se describen a continuación.
+
+Investigamos el caso más parecido que existe, el cohete que sustenta el récord de altura (**Aftershock II**), ya que nos servirá para responder a todas las cuestiones siguientes. Otro buen caso para hacer un poco de ingeniería inversa es el **Meraki III**, cohete estudiantil con récord de velocidad (111 km).
+
+La tabla de condiciones de vuelo → problema real → implicación en la aviónica está en la hoja `FARADAY 1.xlsx` ([`../matriz/data/challenges.csv`](../matriz/data/challenges.csv)), y se ve en la sección 0 de la [matriz](../matriz/).
+
 ## a) Elección del microcontrolador
 
 **Elijo el STM32H743ZI (Cortex-M7, LQFP144).** Tiene un segundo muy cerca, el STM32H563ZI, y explico abajo qué haría cambiar la elección.
+
+### Marco de decisión
+
+Voy a definir un marco de decisión para que mi decisión tenga sentido, basándome en el proceso de análisis de decisiones del NASA Systems Engineering Handbook (sección 6.8):
+1. Definir los criterios que la misión exige.
+2. Identificar alternativas.
+3. Analizarlas (matriz de decisión).
+4. Elegir.
+
+El orden importa: los umbrales y los pesos se fijan antes de poner a todos los participantes.
+
+**1. Definir los criterios que la misión exige.** El ordenador de vuelo tiene que ser capaz de hacer tres cosas durante la misión: estimar estados, detectar eventos y vigilar su propia salud. Para ello se hace una preselección de sensores y de qué exigencias tienen estos respecto al microprocesador, sobre todo qué buses necesito y cuántos. Esto es ya el ejercicio 2a: ver [`../ejercicio-2/README.md`](../ejercicio-2/README.md#a-sensores-y-modelos).
+
+Para la matriz de decisión:
+- **Umbral:** el mínimo para completar la función. Si un candidato no llega, no se puntúa.
+- **Peso:** cuánto importa ese criterio frente a los demás.
+- **Nota:** lo bien que cada candidato cumple ese criterio, de 1 a 5.
 
 ### Cómo llegué a él
 

@@ -4,13 +4,9 @@ Es la herramienta con la que elegí el micro (ejercicio 1a) y con la que derivé
 
 ## Abrirla
 
-Desde la raíz del repositorio:
+Doble clic en `matriz/index.html`. No hace falta instalar nada.
 
-```bash
-python3 -m http.server 8000 --directory matriz
-```
-
-y abrir <http://localhost:8000>. No hace falta instalar nada. Abierta como `file://` no funciona, porque el navegador no deja leer los CSV.
+Abierta así, la página lee los datos de `app/data_bundle.js`, que es una copia empaquetada de los CSV: el navegador no deja leer archivos CSV desde disco. Si se edita un CSV, hay que regenerar el paquete con `python3 matriz/tools/build_bundle.py`; el validador avisa si se queda desfasado. También se puede servir con `python3 -m http.server 8000 --directory matriz` y abrir <http://localhost:8000>; servida así, lee los CSV directamente.
 
 La página tiene siete secciones:
 
@@ -56,6 +52,10 @@ python3 matriz/tools/import_st_selector.py --fecha 2026-09-30
 
 ```bash
 python3 matriz/tools/parse_ioc.py
+```
+
+```bash
+python3 matriz/tools/build_bundle.py
 ```
 
 ```bash
