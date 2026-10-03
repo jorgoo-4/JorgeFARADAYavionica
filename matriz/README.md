@@ -4,7 +4,9 @@ Es la herramienta con la que elegí el micro (ejercicio 1a) y con la que derivé
 
 ## Abrirla
 
-Doble clic en `matriz/index.html`. No hace falta instalar nada.
+**En línea:** <https://jorgoo-4.github.io/JorgeFARADAYavionica/matriz/>
+
+**En local:** Doble clic en `matriz/index.html`. No hace falta instalar nada.
 
 Abierta así, la página lee los datos de `app/data_bundle.js`, que es una copia empaquetada de los CSV: el navegador no deja leer archivos CSV desde disco. Si se edita un CSV, hay que regenerar el paquete con `python3 matriz/tools/build_bundle.py`; el validador avisa si se queda desfasado. También se puede servir con `python3 -m http.server 8000 --directory matriz` y abrir <http://localhost:8000>; servida así, lee los CSV directamente.
 

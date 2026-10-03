@@ -29,7 +29,7 @@ matriz/             herramienta con la que elegí el micro: requisitos, umbrales
 ```
 
 - **El firmware** es un único proyecto, como pide el enunciado: el 2b se integra en el mismo proyecto generado en el 1b. Se abre en STM32CubeIDE con *File → Import → STM32CubeMX/STM32CubeIDE Project*, seleccionando `firmware/FARADAYJorge`. Compila sin errores ni avisos.
-- **La matriz** es una página web estática con los datos en CSV. Se abre con doble clic en `matriz/index.html`, sin instalar nada (también sirve `python3 -m http.server 8000 --directory matriz`). Detalles en [`matriz/README.md`](matriz/README.md).
+- **La matriz** es una página web estática con los datos en CSV. **Se ve en línea en <https://jorgoo-4.github.io/JorgeFARADAYavionica/matriz/>.** En local se abre con doble clic en `matriz/index.html`, sin instalar nada (también sirve `python3 -m http.server 8000 --directory matriz`). Detalles en [`matriz/README.md`](matriz/README.md).
 
 ## Lo que no he podido hacer
 
