@@ -15,15 +15,16 @@ Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercici
 | | b) Proyecto STM32CubeMX (SPI, I²C, ST-LINK) | [`ejercicio-1/README.md`](ejercicio-1/README.md#b-proyecto-en-stm32cubemx) → proyecto en [`firmware/FARADAYJorge/`](firmware/FARADAYJorge/) |
 | **2. Sensores** | a) Sensores imprescindibles, modelos y por qué cada uno | [`ejercicio-2/README.md`](ejercicio-2/README.md#a-sensores-y-modelos) |
 | | b) Inicialización y lectura | [`ejercicio-2/README.md`](ejercicio-2/README.md#b-inicialización-y-lectura) → código en [`firmware/FARADAYJorge/Core/Src/sensors/`](firmware/FARADAYJorge/Core/Src/sensors/) |
-| **3. Especialización** | — | en preparación |
+| **3. Especialización** | Opción III: FreeRTOS (tareas, prioridades y esqueletos) | [`ejercicio-3/README.md`](ejercicio-3/README.md) → proyecto en [`firmware/FARADAYJorge_Ej3/`](firmware/FARADAYJorge_Ej3/) |
 
 ## Qué hay en el repositorio
 
 ```
-docs/              documento de respuestas (PDF)
+docs/              documentos de respuestas (PDF)
 ejercicio-1/        respuesta al ejercicio 1
 ejercicio-2/        respuesta al ejercicio 2
-firmware/           proyecto STM32CubeIDE (STM32H743ZI): configuración de CubeMX + drivers de sensores
+ejercicio-3/        respuesta al ejercicio 3 (opción III, FreeRTOS)
+firmware/           proyectos STM32CubeIDE (STM32H743ZI): FARADAYJorge (ejercicios 1 y 2) y FARADAYJorge_Ej3 (ejercicio 3, con FreeRTOS)
 matriz/             herramienta con la que elegí el micro: requisitos, umbrales, pesos y sensibilidad
 ```
 

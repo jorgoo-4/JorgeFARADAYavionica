@@ -1,6 +1,11 @@
 # Firmware — ordenador de vuelo (STM32H743ZI)
 
-Proyecto de STM32CubeIDE para los ejercicios **1b** (configuración en CubeMX) y **2b** (inicialización y lectura de sensores).
+Dos proyectos de STM32CubeIDE:
+
+- **`FARADAYJorge/`**: ejercicios **1b** (configuración en CubeMX) y **2b** (inicialización y lectura de sensores).
+- **`FARADAYJorge_Ej3/`**: ejercicio **3**. Es una copia del anterior con FreeRTOS: tareas, colas, mutex y event flags. Explicado en [`../ejercicio-3/README.md`](../ejercicio-3/README.md).
+
+Lo que sigue describe `FARADAYJorge/`.
 
 - **Abrirlo:** en STM32CubeIDE, *File → Import → STM32CubeMX/STM32CubeIDE Project* y seleccionar `firmware/FARADAYJorge`.
 - **Compilar:** *Project → Build* (Ctrl+B).
