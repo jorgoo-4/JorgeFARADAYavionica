@@ -4,7 +4,7 @@ Jorge Gallego Broto
 
 Este repositorio contiene mis respuestas a la prueba de Aviónica Software. Cada ejercicio tiene su carpeta con un README que responde a cada apartado y enlaza al código o a los datos en los que se apoya.
 
-Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercicios_FARADAY.pdf`](docs/Resolucion_ejercicios_FARADAY.pdf). Su contenido está repartido y ordenado en los README de cada ejercicio.
+Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercicios_FARADAY.pdf`](docs/Resolucion_ejercicios_FARADAY.pdf). Su contenido está repartido y ordenado en los README de cada ejercicio. Las fuentes consultadas están en [`docs/BIBLIOGRAFIA.md`](docs/BIBLIOGRAFIA.md).
 
 ## Dónde está cada ejercicio
 
@@ -20,7 +20,7 @@ Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercici
 ## Qué hay en el repositorio
 
 ```
-docs/              documentos de respuestas (PDF)
+docs/              documentos de respuestas (PDF) y bibliografía
 ejercicio-1/        respuesta al ejercicio 1
 ejercicio-2/        respuesta al ejercicio 2
 ejercicio-3/        respuesta al ejercicio 3 (opción III, FreeRTOS)
