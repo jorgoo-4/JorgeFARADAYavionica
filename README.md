@@ -15,12 +15,13 @@ Mi documento de respuestas completo, en PDF, está en [`docs/Resolucion_ejercici
 | | b) Proyecto STM32CubeMX (SPI, I²C, ST-LINK) | [`ejercicio-1/README.md`](ejercicio-1/README.md#b-proyecto-en-stm32cubemx) → proyecto en [`firmware/FARADAYJorge/`](firmware/FARADAYJorge/) |
 | **2. Sensores** | a) Sensores imprescindibles, modelos y por qué cada uno | [`ejercicio-2/README.md`](ejercicio-2/README.md#a-sensores-y-modelos) |
 | | b) Inicialización y lectura | [`ejercicio-2/README.md`](ejercicio-2/README.md#b-inicialización-y-lectura) → código en [`firmware/FARADAYJorge/Core/Src/sensors/`](firmware/FARADAYJorge/Core/Src/sensors/) |
+| **Proyectos personales** | Resumen de mis proyectos tecnológicos | [`docs/Proyectos_tecnologicos_Jorge_Gallego.pdf`](docs/Proyectos_tecnologicos_Jorge_Gallego.pdf) |
 | **3. Especialización** | Opción III: FreeRTOS (tareas, prioridades y esqueletos) | [`ejercicio-3/README.md`](ejercicio-3/README.md) → proyecto en [`firmware/FARADAYJorge_Ej3/`](firmware/FARADAYJorge_Ej3/) |
 
 ## Qué hay en el repositorio
 
 ```
-docs/              documentos de respuestas (PDF) y bibliografía
+docs/              documentos de respuestas (PDF), bibliografía y resumen de proyectos personales
 ejercicio-1/        respuesta al ejercicio 1
 ejercicio-2/        respuesta al ejercicio 2
 ejercicio-3/        respuesta al ejercicio 3 (opción III, FreeRTOS)
@@ -30,6 +31,16 @@ matriz/             herramienta con la que elegí el micro: requisitos, umbrales
 
 - **El firmware** es un único proyecto, como pide el enunciado: el 2b se integra en el mismo proyecto generado en el 1b. Se abre en STM32CubeIDE con *File → Import → STM32CubeMX/STM32CubeIDE Project*, seleccionando `firmware/FARADAYJorge`. Compila sin errores ni avisos.
 - **La matriz** es una página web estática con los datos en CSV. **Se ve en línea en <https://jorgoo-4.github.io/JorgeFARADAYavionica/matriz/>.** En local se abre con doble clic en `matriz/index.html`, sin instalar nada (también sirve `python3 -m http.server 8000 --directory matriz`). Detalles en [`matriz/README.md`](matriz/README.md).
+
+## Proyectos personales
+
+[`docs/Proyectos_tecnologicos_Jorge_Gallego.pdf`](docs/Proyectos_tecnologicos_Jorge_Gallego.pdf) resume mis proyectos tecnológicos:
+- **Evaluación interna de Física (Bachillerato Internacional):** número de nodos de sustentación de un levitador acústico TinyLev de 40 kHz en función del voltaje.
+- **Monografía de Física (Bachillerato Internacional):** la modulación Chirp Spread Spectrum en LoRa. Medí alcance, sensibilidad y tolerancia al efecto Doppler según el factor de dispersión, con dos módulos LoRa y ESP32.
+- **Sport Lines** (ganador del SIE Huesca 2025): líneas de pista deportiva reconfigurables con tinta electrónica.
+- **Guiado para atletas con discapacidad visual** (SIE Huesca 2024): sensores piezoeléctricos y aviso sonoro por conducción ósea.
+
+El PDF es solo un resumen. La monografía y la evaluación interna completas no están publicadas aquí: por las normas del Bachillerato Internacional las envío por correo electrónico.
 
 ## Lo que no he podido hacer
 
